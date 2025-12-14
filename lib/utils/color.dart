@@ -138,3 +138,119 @@ extension ColorSchemeX on BuildContext {
   Color get onlinePayment => AppColors.onlinePayment;
   Color get warning => AppColors.warning;
 }
+
+/// Text styles for the application
+class AppTextStyles {
+  AppTextStyles._();
+
+  // Headings
+  static const TextStyle heading1 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    height: 1.2,
+    color: AppColors.onBackground,
+  );
+
+  static const TextStyle heading2 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    height: 1.3,
+    color: AppColors.onBackground,
+  );
+
+  static const TextStyle heading3 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    height: 1.4,
+    color: AppColors.onBackground,
+  );
+
+  // Subtitles
+  static const TextStyle subtitle1 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    height: 1.4,
+    color: AppColors.onBackground,
+  );
+
+  static const TextStyle subtitle2 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    height: 1.4,
+    color: AppColors.onSurfaceVariant,
+  );
+
+  // Body text
+  static const TextStyle body1 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    height: 1.5,
+    color: AppColors.onBackground,
+  );
+
+  static const TextStyle body2 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    height: 1.5,
+    color: AppColors.onSurfaceVariant,
+  );
+
+  // Caption & small text
+  static const TextStyle caption = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    height: 1.4,
+    color: AppColors.onSurfaceVariant,
+  );
+
+  static const TextStyle overline = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+    height: 1.6,
+    letterSpacing: 1.5,
+    color: AppColors.onSurfaceVariant,
+  );
+
+  // Button text
+  static const TextStyle button = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    height: 1.2,
+    letterSpacing: 0.5,
+  );
+
+  static const TextStyle buttonLarge = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    height: 1.2,
+    letterSpacing: 0.5,
+  );
+}
+
+/// Additional helper colors for specific UI elements
+class AppColorsExtended {
+  AppColorsExtended._();
+
+  // Text colors
+  static const Color textPrimary = AppColors.onBackground;
+  static const Color textSecondary = AppColors.onSurfaceVariant;
+  static const Color textDisabled = Color(0xFF757575);
+
+  // Icon colors
+  static const Color iconDefault = AppColors.onSurfaceVariant;
+  static const Color iconActive = AppColors.primary;
+  static const Color iconDisabled = Color(0xFF9E9E9E);
+
+  // Input/Form colors
+  static const Color inputBackground = AppColors.surfaceVariant;
+  static const Color inputBorder = AppColors.outline;
+  static const Color inputFocused = AppColors.primary;
+
+  // Divider & Border
+  static const Color divider = AppColors.outline;
+  static const Color border = Color(0xFF616161);
+
+  // Chip colors
+  static const Color chipBackground = AppColors.tertiaryContainer;
+  static const Color chipText = AppColors.onTertiaryContainer;
+}

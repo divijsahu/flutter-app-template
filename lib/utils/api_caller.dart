@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:provider_app_template/utils/constants.dart';
+import 'package:flutter_app_template/utils/constants.dart';
 
 import '../services/network_service.dart';
 
