@@ -1,16 +1,29 @@
 # 🚀 Flutter App Template - 2026 Enterprise Architecture
 
-A modern, scalable Flutter app template following 2026 enterprise architecture principles with clean code, multi-lingual support, and modular design system.
+[![Flutter Version](https://img.shields.io/badge/Flutter-3.4.4+-blue.svg)](https://flutter.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/divijsahu/flutter-app-template/pulls)
+
+A production-ready Flutter app template following 2026 enterprise architecture principles with clean code, modular design system, and scalable structure. Perfect for starting new projects or learning best practices.
 
 ## ✨ Features
 
 - 🏗️ **Clean Architecture** - Domain-driven design with clear separation of concerns
 - 🎨 **Design System** - Token-based design with atoms, molecules, and organisms
-- 🌍 **Multi-Lingual** - Built-in support for English, Spanish, Hindi, and Arabic
-- 📱 **Responsive** - Mobile, tablet, and desktop layouts
-- 🎯 **Type-Safe** - Result types for error handling
-- ⚡ **Performance** - Optimized with best practices
+- 📱 **Responsive** - Mobile, tablet, and desktop layouts out of the box
+- 🎯 **Type-Safe** - Result types for robust error handling
+- ⚡ **Performance** - Optimized with Flutter best practices
 - 🧪 **Testable** - Every layer independently testable
+- 📚 **Well Documented** - Comprehensive guides and examples
+- 🔧 **Production Ready** - Battle-tested architecture patterns
+
+## 🎯 Who Is This For?
+
+- **Startups** building scalable Flutter apps
+- **Enterprise teams** needing maintainable architecture
+- **Solo developers** wanting best practices
+- **Students** learning Flutter architecture
+- **Teams** requiring consistent code structure
 
 ## 📁 Project Structure
 
@@ -20,8 +33,7 @@ lib/
 │   ├── base/                  # Base classes (UseCase, etc.)
 │   ├── errors/                # Failure types
 │   ├── network/               # Result type, network utilities
-│   ├── constants/             # App-wide constants
-│   └── utils/                 # Utility functions
+│   └── constants/             # App-wide constants
 │
 ├── design_system/             # Design tokens & components
 │   ├── tokens/                # Colors, typography, spacing, breakpoints
@@ -34,8 +46,7 @@ lib/
 ├── shared/                    # Shared across features
 │   ├── extensions/            # Context, String extensions
 │   ├── helpers/               # Snackbar, dialog helpers
-│   ├── widgets/               # Reusable widgets
-│   └── models/                # Shared models
+│   └── widgets/               # Reusable widgets
 │
 ├── features/                  # Feature modules
 │   └── home/
@@ -43,46 +54,63 @@ lib/
 │       ├── domain/            # Entities, use cases, contracts
 │       └── presentation/      # Screens, widgets, providers
 │
-├── app/                       # App configuration
-│   └── app.dart               # Root app widget
-│
-└── l10n/                      # Localization files
-    ├── app_en.arb             # English
-    ├── app_es.arb             # Spanish
-    ├── app_hi.arb             # Hindi
-    └── app_ar.arb             # Arabic
+└── app/                       # App configuration
+    └── app.dart               # Root app widget
 ```
 
 ## 🚀 Quick Start
 
-### 1. Clone and Setup
+### 1. Use This Template
+
+Click the **"Use this template"** button at the top of this repository, or:
 
 ```bash
+# Clone the repository
 git clone https://github.com/divijsahu/flutter-app-template.git your-app-name
 cd your-app-name
-flutter pub get
-flutter gen-l10n  # Generate localization files
-flutter run
+
+# Remove git history and start fresh
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from template"
 ```
 
-### 2. Add New Language
-
-1. Create new ARB file in `lib/l10n/` (e.g., `app_fr.arb`)
-2. Copy structure from `app_en.arb`
-3. Translate all strings
-4. Run `flutter gen-l10n`
-
-### 3. Add New Feature
+### 2. Setup Your Project
 
 ```bash
-# Create feature structure
-mkdir -p lib/features/your_feature/{data,domain,presentation}/{datasources,models,repositories,entities,usecases,screens,widgets,providers}
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+
+# Run tests
+flutter test
+
+# Check for issues
+flutter analyze
 ```
 
-Follow the clean architecture pattern:
-- **Domain**: Define entities and use cases
-- **Data**: Implement repositories and data sources
-- **Presentation**: Build UI with screens and widgets
+### 3. Customize
+
+1. **Update app name** in `pubspec.yaml`
+2. **Change package name**: `flutter pub run change_app_package_name:main com.yourcompany.yourapp`
+3. **Update constants** in `lib/core/constants/app_constants.dart`
+4. **Customize theme** in `lib/design_system/tokens/`
+5. **Add your features** in `lib/features/`
+
+## 📖 Documentation
+
+### Quick Guides
+- **[Architecture Guide](docs/ARCHITECTURE.md)** - Detailed architecture breakdown
+- **[Design System Guide](docs/DESIGN_SYSTEM.md)** - Using design tokens and components
+- **[Feature Development](docs/FEATURE_DEVELOPMENT.md)** - Adding new features
+- **[Testing Guide](docs/TESTING.md)** - Writing tests
+
+### Reference
+- **[Enterprise Architecture](docs/ENTERPRISE_ARCHITECTURE.md)** - Full enterprise patterns
+- **[Best Practices](docs/BEST_PRACTICES.md)** - Coding standards and conventions
 
 ## 🎨 Design System Usage
 
@@ -129,46 +157,11 @@ ResponsiveLayout(
 context.colors.primary
 context.textTheme.bodyLarge
 
-// Access localization
-context.l10n.welcomeMessage
-
 // Check device type
 if (context.isMobile) { }
 if (context.isTablet) { }
 if (context.isDesktop) { }
 ```
-
-## 🌍 Localization
-
-### Using Translations
-
-```dart
-// In widgets
-Text(context.l10n.welcomeMessage)
-Text(context.l10n.getStarted)
-
-// Available languages
-- English (en)
-- Spanish (es)
-- Hindi (hi)
-- Arabic (ar)
-```
-
-### Adding New Strings
-
-1. Add to `lib/l10n/app_en.arb`:
-```json
-{
-  "myNewString": "My New String",
-  "@myNewString": {
-    "description": "Description of the string"
-  }
-}
-```
-
-2. Add translations to other ARB files
-3. Run `flutter gen-l10n`
-4. Use: `context.l10n.myNewString`
 
 ## 🏗️ Architecture Principles
 
@@ -205,6 +198,20 @@ class LoginUseCase extends BaseUseCase<User, LoginParams> {
 }
 ```
 
+## 🔧 Adding a New Feature
+
+```bash
+# Create feature structure
+mkdir -p lib/features/your_feature/{data,domain,presentation}/{datasources,models,repositories,entities,usecases,screens,widgets,providers}
+```
+
+Follow the clean architecture pattern:
+1. **Domain**: Define entities and use cases
+2. **Data**: Implement repositories and data sources
+3. **Presentation**: Build UI with screens and widgets
+
+See [Feature Development Guide](docs/FEATURE_DEVELOPMENT.md) for detailed steps.
+
 ## 📦 Recommended Packages
 
 ```yaml
@@ -238,20 +245,74 @@ flutter test --coverage
 
 # Generate coverage report
 genhtml coverage/lcov.info -o coverage/html
+open coverage/html/index.html
 ```
 
 ## 📝 Best Practices
 
-1. ✅ Use design tokens - never hardcode values
-2. ✅ Follow clean architecture layers
-3. ✅ Use Result type for error handling
-4. ✅ Keep features isolated
-5. ✅ Use context extensions for common operations
-6. ✅ Localize all user-facing strings
-7. ✅ Make layouts responsive
-8. ✅ Write tests for business logic
+### DO ✅
+- Use design tokens for all visual properties
+- Follow clean architecture layers
+- Use Result type for error handling
+- Keep features isolated
+- Use context extensions for common operations
+- Make layouts responsive
+- Write tests for business logic
+
+### DON'T ❌
+- Hardcode colors, spacing, or text
+- Import from other features
+- Throw exceptions in repositories
+- Skip error handling
+- Assume screen size
+- Put business logic in widgets
+- Repeat code across features
+
+## 🌟 What's Included
+
+### Core Infrastructure
+- ✅ Base classes for UseCase and Repository
+- ✅ Result type for error handling
+- ✅ Failure types (Network, Server, Validation, etc.)
+- ✅ App constants and configuration
+
+### Design System
+- ✅ Design tokens (colors, typography, spacing, breakpoints)
+- ✅ Light and dark themes
+- ✅ Atomic components (buttons, inputs, text)
+- ✅ Responsive layouts
+- ✅ Context extensions
+
+### Example Feature
+- ✅ Home feature with clean architecture
+- ✅ Responsive home screen
+- ✅ Example of proper layer separation
+
+### Documentation
+- ✅ Architecture guide
+- ✅ Design system guide
+- ✅ Feature development guide
+- ✅ Testing guide
+- ✅ Best practices
+
+## 🔄 Updates and Maintenance
+
+This template is actively maintained. To get updates:
+
+```bash
+# Add template as upstream
+git remote add template https://github.com/divijsahu/flutter-app-template.git
+
+# Fetch updates
+git fetch template
+
+# Merge updates (resolve conflicts if any)
+git merge template/main --allow-unrelated-histories
+```
 
 ## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
 
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
@@ -261,10 +322,34 @@ genhtml coverage/lcov.info -o coverage/html
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Flutter team for the amazing framework
+- Clean Architecture by Robert C. Martin
+- Atomic Design by Brad Frost
+- Flutter community for best practices
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/divijsahu/flutter-app-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/divijsahu/flutter-app-template/discussions)
+- **Email**: your.email@example.com
+
+## 🗺️ Roadmap
+
+- [ ] Add authentication feature example
+- [ ] Add API integration example
+- [ ] Add state management examples (Riverpod, Bloc)
+- [ ] Add routing example with GoRouter
+- [ ] Add form validation examples
+- [ ] Add animation examples
+- [ ] Add testing examples for all layers
+- [ ] Add CI/CD workflow examples
 
 ---
 
-**Happy Coding! 🎉**
+**Built with ❤️ using Flutter and 2026 Enterprise Architecture principles.**
 
-Built with ❤️ using Flutter and 2026 Enterprise Architecture principles.
+**Star ⭐ this repo if you find it helpful!**
