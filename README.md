@@ -1,201 +1,324 @@
-# 🚀 Flutter App Template
+# 🚀 Flutter App Template - 2026 Enterprise Architecture
 
-A comprehensive Flutter app template to quick-start your new projects with best practices, clean architecture, and essential utilities pre-configured.
+[![Flutter Version](https://img.shields.io/badge/Flutter-3.4.4+-blue.svg)](https://flutter.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/divijsahu/flutter-app-template/pulls)
+
+A production-ready Flutter app template following 2026 enterprise architecture principles with clean code, modular design system, and scalable structure. Perfect for starting new projects or learning best practices.
 
 ## ✨ Features
 
-- 🏗️ **Clean Architecture** - Well-organized folder structure
-- 🎨 **Smart Image Management** - Centralized asset paths and smart caching widget
-- 🔗 **Flexible API Integration** - Support for both REST and legacy PHP backends
-- 🎯 **Icon Management** - Organized Material Design and custom icons
-- ⚙️ **Configuration Ready** - Comprehensive constants file with feature flags
-- 🎨 **Theme System** - Predefined colors and text styles
-- 📱 **Cross-Platform** - Android, iOS, Web, Desktop ready
-- 🔧 **Developer Friendly** - Clear documentation and examples
+- 🏗️ **Clean Architecture** - Domain-driven design with clear separation of concerns
+- 🎨 **Design System** - Token-based design with atoms, molecules, and organisms
+- 📱 **Responsive** - Mobile, tablet, and desktop layouts out of the box
+- 🎯 **Type-Safe** - Result types for robust error handling
+- ⚡ **Performance** - Optimized with Flutter best practices
+- 🧪 **Testable** - Every layer independently testable
+- 📚 **Well Documented** - Comprehensive guides and examples
+- 🔧 **Production Ready** - Battle-tested architecture patterns
+
+## 🎯 Who Is This For?
+
+- **Startups** building scalable Flutter apps
+- **Enterprise teams** needing maintainable architecture
+- **Solo developers** wanting best practices
+- **Students** learning Flutter architecture
+- **Teams** requiring consistent code structure
 
 ## 📁 Project Structure
 
 ```
 lib/
-├── main.dart                    # App entry point
-├── models/                      # Data models
-│   └── your_data_model.dart
-├── pages/                       # UI screens
-│   └── bottom_nav_bar.dart
-├── providers/                   # State management
-│   ├── base_provider.dart
-│   ├── network_provider.dart
-│   └── your_provider.dart
-├── services/                    # API and business logic
-│   ├── base_your_api_service.dart
-│   ├── network_service.dart
-│   └── your_api_service.dart
-└── utils/                       # Utilities and helpers
-    ├── api_caller.dart
-    ├── color.dart              # Color definitions
-    ├── constants.dart          # App-wide constants
-    ├── my_icons.dart           # Icon management
-    ├── my_images.dart          # Image path management
-    ├── theme.dart              # Theme configuration
-    └── w_smart_image.dart      # Smart image widget
+├── core/                      # Core infrastructure
+│   ├── base/                  # Base classes (UseCase, etc.)
+│   ├── errors/                # Failure types
+│   ├── network/               # Result type, network utilities
+│   └── constants/             # App-wide constants
+│
+├── design_system/             # Design tokens & components
+│   ├── tokens/                # Colors, typography, spacing, breakpoints
+│   ├── theme/                 # Theme configuration
+│   ├── atoms/                 # Basic UI components (buttons, inputs)
+│   ├── molecules/             # Composite components
+│   ├── organisms/             # Complex components
+│   └── layouts/               # Layout components (responsive)
+│
+├── shared/                    # Shared across features
+│   ├── extensions/            # Context, String extensions
+│   ├── helpers/               # Snackbar, dialog helpers
+│   └── widgets/               # Reusable widgets
+│
+├── features/                  # Feature modules
+│   └── home/
+│       ├── data/              # Data sources, DTOs, repositories
+│       ├── domain/            # Entities, use cases, contracts
+│       └── presentation/      # Screens, widgets, providers
+│
+└── app/                       # App configuration
+    └── app.dart               # Root app widget
 ```
 
 ## 🚀 Quick Start
 
-### 1. Clone and Setup
+### 1. Use This Template
+
+Click the **"Use this template"** button at the top of this repository, or:
 
 ```bash
-# Clone the template
+# Clone the repository
 git clone https://github.com/divijsahu/flutter-app-template.git your-app-name
 cd your-app-name
 
+# Remove git history and start fresh
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from template"
+```
+
+### 2. Setup Your Project
+
+```bash
 # Install dependencies
 flutter pub get
 
 # Run the app
 flutter run
+
+# Run tests
+flutter test
+
+# Check for issues
+flutter analyze
 ```
 
-### 2. Customize for Your Project
+### 3. Customize
 
-#### Update App Information
-```dart
-// lib/utils/constants.dart
-static const String APP_NAME = 'Your App Name';
-static const String APP_VERSION = '1.0.0';
-static const String CONTACT_EMAIL = 'support@yourapp.com';
-```
+1. **Update app name** in `pubspec.yaml`
+2. **Change package name**: `flutter pub run change_app_package_name:main com.yourcompany.yourapp`
+3. **Update constants** in `lib/core/constants/app_constants.dart`
+4. **Customize theme** in `lib/design_system/tokens/`
+5. **Add your features** in `lib/features/`
 
-#### Configure API Endpoints
-```dart
-// For REST APIs
-ApiEndpoints.setHost('https://api.yourapp.com');
+## 📖 Documentation
 
-// For legacy PHP backends
-ApiEndpointsPhp.setHost('https://yourapp.com');
-```
+### Quick Guides
+- **[Architecture Guide](docs/ARCHITECTURE.md)** - Detailed architecture breakdown
+- **[Design System Guide](docs/DESIGN_SYSTEM.md)** - Using design tokens and components
+- **[Feature Development](docs/FEATURE_DEVELOPMENT.md)** - Adding new features
+- **[Testing Guide](docs/TESTING.md)** - Writing tests
 
-#### Add Your Assets
-```dart
-// lib/utils/my_images.dart
-static const String yourLogo = '$_basePath/your_logo.png';
+### Reference
+- **[Enterprise Architecture](docs/ENTERPRISE_ARCHITECTURE.md)** - Full enterprise patterns
+- **[Best Practices](docs/BEST_PRACTICES.md)** - Coding standards and conventions
 
-// lib/utils/my_icons.dart
-static const String yourIcon = '$_svgIconsPath/your_icon.svg';
-```
+## 🎨 Design System Usage
 
-## 🛠️ Key Components
-
-### 📷 Smart Image Management
-
-**Two-file system for clear separation:**
-
-1. **`my_images.dart`** - String paths only
-2. **`w_smart_image.dart`** - Widget creation with caching
+### Using Design Tokens
 
 ```dart
-// Using image paths
-Image.asset(MyImages.logo)
-
-// Using smart image widget with helpers
-SmartImageHelpers.userAvatar('user123', size: 60)
-SmartImageWidget(imageUrl: MyImages.networkImage('photo.jpg'))
-```
-
-### 🔗 API Integration
-
-**Flexible endpoint management:**
-
-```dart
-// REST API (recommended)
-String loginUrl = ApiEndpoints.LOGIN;
-String customUrl = ApiEndpoints.endpoint('custom/path');
-
-// Legacy PHP API
-String phpUrl = ApiEndpointsPhp.endpoint('login');
-```
-
-### 🎨 Theme & Styling
-
-```dart
-// Using predefined colors
+// Colors
 Container(color: AppColors.primary)
 
-// Using text styles
-Text('Hello', style: AppTextStyles.heading1)
+// Spacing
+Padding(padding: AppSpacing.pagePadding)
+
+// Typography
+Text('Hello', style: AppTypography.headlineMedium)
+
+// Breakpoints
+if (MediaQuery.of(context).size.width >= AppBreakpoints.tablet) {
+  // Tablet layout
+}
 ```
 
-### ⚙️ Configuration Management
+### Using Components
 
 ```dart
-// Feature flags
-if (AppConstants.IS_SUBSCRIPTION_ACTIVE) {
-  // Show premium features
-}
+// Primary Button
+PrimaryButton(
+  label: 'Submit',
+  onPressed: () {},
+  isLoading: false,
+)
 
-// Environment-specific settings
-if (AppConstants.IS_DEBUG) {
-  // Debug-only code
+// Responsive Layout
+ResponsiveLayout(
+  mobile: MobileWidget(),
+  tablet: TabletWidget(),
+  desktop: DesktopWidget(),
+)
+```
+
+### Using Context Extensions
+
+```dart
+// Access theme
+context.colors.primary
+context.textTheme.bodyLarge
+
+// Check device type
+if (context.isMobile) { }
+if (context.isTablet) { }
+if (context.isDesktop) { }
+```
+
+## 🏗️ Architecture Principles
+
+### 1. Feature Isolation
+Each feature is self-contained with its own data, domain, and presentation layers.
+
+### 2. Dependency Rule
+```
+Presentation → Domain ← Data
+```
+Domain knows nothing about other layers.
+
+### 3. Result Type
+Use `Result<T>` for error handling:
+```dart
+Future<Result<User>> login(String email, String password) async {
+  try {
+    final user = await api.login(email, password);
+    return Success(user);
+  } catch (e) {
+    return Failure(NetworkFailure());
+  }
 }
 ```
 
-## 📋 Customization Checklist
+### 4. Use Cases
+Business logic lives in use cases:
+```dart
+class LoginUseCase extends BaseUseCase<User, LoginParams> {
+  @override
+  Future<Result<User>> execute(LoginParams params) {
+    // Business logic here
+  }
+}
+```
 
-- [ ] Update `APP_NAME`, `APP_VERSION` in `constants.dart`
-- [ ] Replace API host URLs in `ApiEndpoints`
-- [ ] Add your contact information and social media links
-- [ ] Update privacy policy and terms URLs
-- [ ] Add your app-specific image assets
-- [ ] Configure your app's color scheme in `color.dart`
-- [ ] Update app icons and splash screens
-- [ ] Modify `pubspec.yaml` with your app details
-- [ ] Add your specific API endpoints
-- [ ] Configure feature flags for your app
+## 🔧 Adding a New Feature
+
+```bash
+# Create feature structure
+mkdir -p lib/features/your_feature/{data,domain,presentation}/{datasources,models,repositories,entities,usecases,screens,widgets,providers}
+```
+
+Follow the clean architecture pattern:
+1. **Domain**: Define entities and use cases
+2. **Data**: Implement repositories and data sources
+3. **Presentation**: Build UI with screens and widgets
+
+See [Feature Development Guide](docs/FEATURE_DEVELOPMENT.md) for detailed steps.
 
 ## 📦 Recommended Packages
-
-This template is designed to work well with:
 
 ```yaml
 dependencies:
   # State Management
-  provider: ^6.0.0
-  riverpod: ^2.0.0
+  flutter_riverpod: ^2.5.0
   
   # Networking
-  http: ^1.0.0
-  dio: ^5.0.0
+  dio: ^5.4.0
   
   # Local Storage
-  shared_preferences: ^2.0.0
-  hive: ^2.0.0
+  shared_preferences: ^2.2.0
+  hive_flutter: ^1.1.0
   
-  # UI/UX
-  cached_network_image: ^3.0.0
-  flutter_svg: ^2.0.0
-  lottie: ^2.0.0
+  # Routing
+  go_router: ^13.0.0
   
-  # Utilities
-  intl: ^0.18.0
-  url_launcher: ^6.0.0
+  # Code Generation
+  freezed: ^2.4.0
+  json_serializable: ^6.7.0
 ```
 
-## 🎯 Best Practices Included
+## 🧪 Testing
 
-- **DRY Principle** - No code duplication
-- **Single Responsibility** - Each file has a clear purpose
-- **Type Safety** - Compile-time error checking
-- **Scalable Architecture** - Easy to extend and maintain
-- **Clear Documentation** - Well-documented code and structure
-- **Performance Optimized** - Image caching and efficient widgets
+```bash
+# Run all tests
+flutter test
+
+# Run with coverage
+flutter test --coverage
+
+# Generate coverage report
+genhtml coverage/lcov.info -o coverage/html
+open coverage/html/index.html
+```
+
+## 📝 Best Practices
+
+### DO ✅
+- Use design tokens for all visual properties
+- Follow clean architecture layers
+- Use Result type for error handling
+- Keep features isolated
+- Use context extensions for common operations
+- Make layouts responsive
+- Write tests for business logic
+
+### DON'T ❌
+- Hardcode colors, spacing, or text
+- Import from other features
+- Throw exceptions in repositories
+- Skip error handling
+- Assume screen size
+- Put business logic in widgets
+- Repeat code across features
+
+## 🌟 What's Included
+
+### Core Infrastructure
+- ✅ Base classes for UseCase and Repository
+- ✅ Result type for error handling
+- ✅ Failure types (Network, Server, Validation, etc.)
+- ✅ App constants and configuration
+
+### Design System
+- ✅ Design tokens (colors, typography, spacing, breakpoints)
+- ✅ Light and dark themes
+- ✅ Atomic components (buttons, inputs, text)
+- ✅ Responsive layouts
+- ✅ Context extensions
+
+### Example Feature
+- ✅ Home feature with clean architecture
+- ✅ Responsive home screen
+- ✅ Example of proper layer separation
+
+### Documentation
+- ✅ Architecture guide
+- ✅ Design system guide
+- ✅ Feature development guide
+- ✅ Testing guide
+- ✅ Best practices
+
+## 🔄 Updates and Maintenance
+
+This template is actively maintained. To get updates:
+
+```bash
+# Add template as upstream
+git remote add template https://github.com/divijsahu/flutter-app-template.git
+
+# Fetch updates
+git fetch template
+
+# Merge updates (resolve conflicts if any)
+git merge template/main --allow-unrelated-histories
+```
 
 ## 🤝 Contributing
 
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
+
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
 ## 📄 License
 
@@ -204,11 +327,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Flutter team for the amazing framework
-- Community packages that make development easier
-- Contributors who help improve this template
+- Clean Architecture by Robert C. Martin
+- Atomic Design by Brad Frost
+- Flutter community for best practices
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/divijsahu/flutter-app-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/divijsahu/flutter-app-template/discussions)
+- **Email**: your.email@example.com
+
+## 🗺️ Roadmap
+
+- [ ] Add authentication feature example
+- [ ] Add API integration example
+- [ ] Add state management examples (Riverpod, Bloc)
+- [ ] Add routing example with GoRouter
+- [ ] Add form validation examples
+- [ ] Add animation examples
+- [ ] Add testing examples for all layers
+- [ ] Add CI/CD workflow examples
 
 ---
 
-**Happy Coding! 🎉**
+**Built with ❤️ using Flutter and 2026 Enterprise Architecture principles.**
 
-If you find this template helpful, please consider giving it a ⭐ on GitHub!
+**Star ⭐ this repo if you find it helpful!**

@@ -86,11 +86,11 @@ docs(readme): update installation instructions
 Maintain the clean architecture:
 ```
 lib/
-├── models/         # Data models
-├── pages/          # UI screens
-├── providers/      # State management
-├── services/       # Business logic & API calls
-└── utils/          # Helpers and utilities
+├── core/           # Infrastructure
+├── design_system/  # UI components & tokens
+├── shared/         # Shared utilities
+├── features/       # Feature modules
+└── app/            # App configuration
 ```
 
 ### Testing
